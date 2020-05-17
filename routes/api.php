@@ -23,3 +23,7 @@ Route::get('/invtipos{ tipo }', 'InvtiposController@show');
 
 Route::resource('/invproductos', 'InvProductos');
 Route::get('/invproductos{ producto }', 'InvProductos@show');
+
+Route::resource('/invgrupos', 'InvgruposController');
+
+Route::get('/invgrupos{ grupo }', 'InvgruposController@show');
