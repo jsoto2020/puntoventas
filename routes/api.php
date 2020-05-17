@@ -27,3 +27,12 @@ Route::get('/invproductos{ producto }', 'InvProductos@show');
 Route::resource('/invgrupos', 'InvgruposController');
 
 Route::get('/invgrupos{ grupo }', 'InvgruposController@show');
+
+Route::resource('/categorias', 'CategoriasController');
+
+Route::get('/categorias{ categoria  }', 'CategoriasController@show');
+
+
+Route::resource('/brands', 'BrandsController');
+
+Route::get('/brands{ brand  }', 'BrandsController@show');
