@@ -151,9 +151,9 @@ class InvtiposController extends ApiResponseController
          $tipo = Invtipos::find($id);
         if ($tipo == null){
 
-            return $this->response()->json("Registro no Existe");
+            return $this->response()->json(array("msj:" => "Registro no Existe"));
         }
          $tipo->update(['estado' => 'ELIMINADO']);
-         return response()->json('Registro Eliminado');
+         return response()->json(array("msj:" => "Registro Eliminado"));
     }
 }

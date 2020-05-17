@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('/invtipos', 'InvtiposController');
 
 Route::get('/invtipos{ tipo }', 'InvtiposController@show');
+
+Route::resource('/invproductos', 'InvProductos');
+Route::get('/invproductos{ producto }', 'InvProductos@show');
