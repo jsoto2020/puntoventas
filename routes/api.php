@@ -36,3 +36,9 @@ Route::get('/categorias{ categoria  }', 'CategoriasController@show');
 Route::resource('/brands', 'BrandsController');
 
 Route::get('/brands{ brand  }', 'BrandsController@show');
+
+
+
+Route::get('/atributos{ atributo  }', 'atributosController@show');
+
+Route::resource('/atributos', 'atributosController');

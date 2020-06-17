@@ -18,7 +18,7 @@ class invProductos extends ApiResponseController
     {
         $productos = invProducto::select('codigo', 'descripcion','descripcion_us','unidadMed','precio_compra','precio_venta','usuario_creador',
                                           'usuario_modificador','stock','id_categoria','id_brand','referencia',
-                                          'ultimoproveedor','ultimaFechaCompra','porcientodescuento','fechadescuento',
+                                          'ultimoproveedor','ultimaFechaCompra','porcientodescuento','fechadescuento','atributos',
                                           'estado')->
                            where('estado','=','ACTIVO')->
         orderBy('created_at', 'desc')->paginate(10);
@@ -64,7 +64,8 @@ class invProductos extends ApiResponseController
         "porcientodescuento"   =>$request->input("porcientodescuento"),
         "ultimoproveedor"      =>$request->input("ultimoproveedor"),
         "ultimaFechaCompra"    =>$request->input("ultimaFechaCompra"),
-        "usuario_modificador"  =>$request->input("usuario_modificador")
+        "usuario_modificador"  =>$request->input("usuario_modificador"),
+        "atributos"            =>$request->input("atributos")
         );
 
         $messages = [
@@ -82,6 +83,7 @@ class invProductos extends ApiResponseController
                 'id_brand'            => 'required|numeric',
                 'usuario_creador'     => 'required|string',
                 'usuario_modificador' => 'required|string'
+               // 'atributos'           => 'json'
 
             ],$messages);
             if ($validator->fails()) {
@@ -143,6 +145,7 @@ class invProductos extends ApiResponseController
         "referencia"           =>$request->input("referencia"),
         "ultimoproveedor"      =>$request->input("ultimoproveedor"),
         "ultimaFechaCompra"    =>$request->input("ultimaFechaCompra"),
+        "atributos"            =>$request->input("atributos"),
         "usuario_modificador" =>$request->input("usuario_modificador"));
 
         $messages = [
@@ -157,7 +160,7 @@ class invProductos extends ApiResponseController
                 'unidadMed'      => 'required|string|min:4',
                 'id_categoria'   => 'required|numeric',
                 'id_brand'       => 'required|numeric',
-
+             //  'atributos'      => 'json',
                 'usuario_modificador' => 'required|string'
             ],$messages);
             if ($validator->fails()) {

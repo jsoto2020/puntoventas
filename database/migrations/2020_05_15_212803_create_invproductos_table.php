@@ -13,6 +13,7 @@ class CreateInvproductosTable extends Migration
      */
     public function up()
     {
+
         Schema::create('invproductos', function (Blueprint $table) {
             $table->id();
             $table->integer('id_categoria');
@@ -21,17 +22,20 @@ class CreateInvproductosTable extends Migration
             $table->string('descripcion',500);
             $table->string('descripcion_us',500);
             $table->string('unidadMed',25);
-            $table->string('imagen',100);
-            $table->string('referencia',100);
-            $table->string('ultimoproveedor',100);
-            $table->date('ultimaFechaCompra');
-            $table->float('stock');
-            $table->float('precio_compra');
-            $table->float('precio_venta');
+            $table->string('imagen',100)->nullable();
+            $table->string('referencia',100)->nullable();
+            $table->string('ultimoproveedor',100)->nullable();
+            $table->date('ultimaFechaCompra')->nullable();
+            $table->float('stock')->nullable();
+            $table->float('precio_compra')->nullable();
+            $table->float('precio_venta')->nullable();
+            $table->float('fechadescuento')->nullable();
+            $table->float('porcientodescuento')->nullable();
             $table->integer('ventas');
+            $table->json('atributos')->nullable();
             $table->string('estado',100);
             $table->string('usuario_creador',500);
-            $table->string('usuario_modificador',500);
+            $table->string('usuario_modificador',500)->nullable();
             $table->timestamps();
         });
     }
